@@ -34,13 +34,22 @@ Requirements needed to run app:
 
 ### Usage
 Clone: 
-`git clone https://github.com/MQCOMP3120-2021/group-web-project-group-k.git`
+
+```
+git clone https://github.com/MQCOMP3120-2021/group-web-project-group-k.git
+```
 
 Front end:
-`npm start`
+
+```
+npm start
+```
 
 Back end:
-`npm run dev`
+
+```
+npm run dev
+```
 
 ### Contributors
 + 45317755 - Kent Ye            [Backend Development   | Data acquisition and cleanup]
