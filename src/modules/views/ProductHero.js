@@ -41,7 +41,7 @@ function ProductHero(props) {
         Find Your Dream Home
       </Typography>
       <Typography color="inherit" align="center" variant="h5" className={classes.h5}>
-        Enjoy secret offers up to -70% off the best luxury hotels every Sunday.
+        View Property Information over 10000+ Houses via Google Maps
       </Typography>
       <Link to={"/signup"}>
       <Button
