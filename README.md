@@ -39,6 +39,11 @@ Clone:
 git clone https://github.com/MQCOMP3120-2021/group-web-project-group-k.git
 ```
 
+Project Installation:
+```
+npm install
+```
+
 Front end:
 
 ```
