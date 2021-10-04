@@ -52,7 +52,7 @@ function AppAppBar(props) {
               color="inherit"
               className={classes.title}
             >
-              {"onepirate"}
+              {"Group K - Real Estate Project"}
             </Typography>
           </Link>
           <div className={classes.right}>
