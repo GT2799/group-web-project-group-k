@@ -6,7 +6,7 @@ Users are able to click on different properties on the map and get the respectiv
 ### Project Milestones:
 + Week 9:
     + **DONE** React Skeleton Implemented
-    + **UNFINISHED** Basic Website Front-End Structure
+    + **DONE** Basic Website Front-End Structure
     + **UNFINISHED** Google Maps API Embedded
     + **UNFINISHED** Google Maps API connection with Front-End components
 
