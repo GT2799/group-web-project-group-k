@@ -15,7 +15,6 @@ import ProductHero from "./page/home/ProductHero"
 import ProductHowItWorks from "./page/home/ProductHowItWorks"
 import ProductSmokingHero from "./page/home/ProductSmokingHero"
 import ProductValues from "./page/home/ProductValues"
-import MapCont from "./page/map/Map"
 function App() {
     return (
         <Router>
@@ -24,7 +23,7 @@ function App() {
                     <Index />
                 </Route>
                 <Route exact path="/map">
-                    <MapCont />
+                    <Map />
                 </Route>
                 <Route path="/signin">
                     <SignIn />
