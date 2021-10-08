@@ -1,29 +1,30 @@
-import withRoot from "./modules/withRoot"
 // --- Post bootstrap -----
 import React from "react"
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import ProductCategories from "./modules/views/ProductCategories"
-import ProductSmokingHero from "./modules/views/ProductSmokingHero"
-import AppFooter from "./modules/views/AppFooter"
-import ProductHero from "./modules/views/ProductHero"
-import ProductValues from "./modules/views/ProductValues"
-import ProductHowItWorks from "./modules/views/ProductHowItWorks"
-import ProductCTA from "./modules/views/ProductCTA"
-import AppAppBar from "./modules/views/AppAppBar"
-import Privacy from "./Privacy"
-import Terms from "./Terms"
-import SignIn from "./SignIn"
-import SignUp from "./SignUp"
-import Map from "./Map"
-
-require("dotenv").config()
-
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import withRoot from "./withRoot"
+import SignIn from "./page/auth/SignIn"
+import SignUp from "./page/auth/SignUp"
+import Privacy from "./page/legal/Privacy"
+import Terms from "./page/legal/Terms"
+import Map from "./page/map/Map"
+import AppAppBar from "./layout/AppAppBar"
+import AppFooter from "./layout/AppFooter"
+import ProductCategories from "./page/home/ProductCategories"
+import ProductCTA from "./page/home/ProductCTA"
+import ProductHero from "./page/home/ProductHero"
+import ProductHowItWorks from "./page/home/ProductHowItWorks"
+import ProductSmokingHero from "./page/home/ProductSmokingHero"
+import ProductValues from "./page/home/ProductValues"
+import MapCont from "./page/map/Map"
 function App() {
     return (
         <Router>
             <Switch>
                 <Route exact path="/">
-                    <Map />
+                    <Index />
+                </Route>
+                <Route exact path="/map">
+                    <MapCont />
                 </Route>
                 <Route path="/signin">
                     <SignIn />
