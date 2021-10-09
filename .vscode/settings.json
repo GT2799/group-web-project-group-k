@@ -1,0 +1,8 @@
+{
+    "git.ignoreLimitWarning": true,
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "Server\\Data\\json-simple-1.1.1.jar",
+        "Server\\Data\\gson-2.6.2.jar"
+    ]
+}
