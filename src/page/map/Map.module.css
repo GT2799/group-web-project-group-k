@@ -20,3 +20,8 @@
     display: flex;
     flex-direction: column;
 }
+
+#mapContainer {
+    width: 500px;
+    height: 500px;
+  }
