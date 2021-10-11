@@ -72,7 +72,7 @@ npm run dev
 	"P_Area":"1011.83", 	<- Area of Property
 	"P_S_Name":"RAWSON ST", <- Property Street name
 	"P_Price":"260000", 	<- Property Price ($AUD)
-	"D_num":"AP807655", 	<- Dealing Number
+	"D_Num":"AP807655", 	<- Dealing Number
 	"SL_Num":"", 		    <- Strata Lot Number
 	"P_U_Num":""} 			<- Property Unit Number
 ]}

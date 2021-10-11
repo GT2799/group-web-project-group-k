@@ -176,7 +176,7 @@ public class rawRead{
                 lineJson.put("C_Date", lineDate(spliced[13])); //Contract Date
                 lineJson.put("S_Date", lineDate(spliced[14])); //Settlement Date
                 lineJson.put("P_Price", spliced[15]); //Purchase Price
-                lineJson.put("D_num", spliced[23]); //unique identifier for each json object
+                lineJson.put("D_Num", spliced[23]); //unique identifier for each json object
                 return lineJson;
             }
         }
@@ -237,21 +237,13 @@ public class rawRead{
         }
     }
 
-
-
-    //Concat All years into one single file
-    public static void concatJSON(){
-
-        //TODO
-    }
-
-    //Read JSON from file
-    public static void readJSON(String file){
+    //Read and return JSON from file
+    public static JSONObject readJSON(String file){
         JSONParser parser = new JSONParser();
-        JSONObject jsonObject;
+        JSONObject jsonObject = null;
         try(FileReader reader = new FileReader(file)){
             jsonObject = (JSONObject) parser.parse(reader);
-            System.out.println(jsonObject);
+            return jsonObject;
         }
         catch(FileNotFoundException e){
             e.printStackTrace();
@@ -262,9 +254,10 @@ public class rawRead{
         catch (org.json.simple.parser.ParseException e) {
             e.printStackTrace();
         }
+        return jsonObject;
     }
 
-    //convert all.dat files into years
+    //convert all .dat files into it's correct 
     public static void bulkConversion(Path dataFolderPath, Path jsonOutputFolderPath){// params:(input,output)
         //Loop through bulkdata folders
         try(Stream<Path> dataFolders = Files.list(dataFolderPath)) {
@@ -296,6 +289,60 @@ public class rawRead{
         System.out.println("Bulk conversion completed");
     }
 
+    //Loop through json files in folder and dismantle into suburbs
+    public static void suburbConversion(Path inputFolderPath, Path outputFolderPath){
+        try(Stream<Path> inputFolder = Files.list(inputFolderPath)){
+            inputFolder.forEach(jsonfile -> {
+                JSONObject readInput = readJSON(jsonfile.toString()); //read each json file
+                JSONArray entriesObject = (JSONArray) readInput.get("Entries");//get entries: object which is an array of json objects
+                //for each entry in JSON array
+                    //check suburb:
+
+                    //if suburb exists -> read suburb file
+                    //check dealer number:
+                        //if dealer number exists in suburb -> go to next object
+                        //if dealer number does not exist -> append object into suburb entry array
+                        //write out/close write for suburb
+                    //if suburb does not exist -> create suburb file and do the same
+            });
+        }
+        catch (IOException err){
+            err.printStackTrace();
+            System.out.println("Error in suburbConversion: input json file loop read");
+        }
+    }
+
+    //Add unique json object to json file
+    public static void jsonAddObject(Path inputFile, JSONObject inputJsonObject){
+        JSONParser jsonParser = new JSONParser();
+        try{
+            JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader(inputFile.toString()));
+            JSONArray entriesObject = (JSONArray) jsonObject.get("Entries");
+            String outDealerNum = inputJsonObject.get("D_Num").toString();
+            for(int i = 0; i < entriesObject.size(); i++){
+                JSONObject entry = (JSONObject) entriesObject.get(i);
+                String inDealerNum = entry.get("D_Num").toString();
+                if(outDealerNum.equals(inDealerNum)){ //if dealer number is found
+                    entriesObject.remove(entry); //remove entry
+                }
+            }
+            entriesObject.add(inputJsonObject);//append input entry
+            FileWriter file = new FileWriter(inputFile.toString());
+            file.write(entriesObject.toJSONString());
+            file.flush();
+            file.close();
+        }
+        catch(FileNotFoundException err){
+            err.printStackTrace();
+        } 
+        catch (IOException e) {
+            e.printStackTrace();
+        } 
+        catch (org.json.simple.parser.ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) throws IOException{
         String sMainPath = new File("").getAbsolutePath();
         String sDataPath = sMainPath + "/Server/Data";
@@ -304,9 +351,13 @@ public class rawRead{
         String sRawAnnualPath = sRawDataPath + "/Annual_data";
         String sJsonAnnualPath = sJsonPath + "/Annual_data";
         String sJsonSuburbPath = sJsonPath + "/Suburb_data";
+        String sTestpath = sJsonPath + "/test_data/2020_data.json";
         Path pRawAnnualpath = Paths.get(sRawAnnualPath);
         Path pJsonAnnualPath = Paths.get(sJsonAnnualPath);
+        Path pTestpath = Paths.get(sTestpath);
         bulkConversion(pRawAnnualpath, pJsonAnnualPath);
+
+
     }//END OF MAIN
 
 }//END OF CLASS
