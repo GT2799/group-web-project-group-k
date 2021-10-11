@@ -41,13 +41,13 @@ public class rawRead{
     }
 
     //Unzip all files in subdirs
-    public static void unzipFiles(Path path, String basePath) throws IOException {
-        List<Path> paths = listFiles(path);
+    public static void unzipFiles(Path inputPath, String outputPath) throws IOException {
+        List<Path> paths = listFiles(inputPath);
         paths.forEach(f -> {
             System.out.println("Converting " + f.getFileName() + " :" + f.toFile().getName().endsWith(".zip"));
             if(f.toFile().getName().endsWith(".zip") || f.toFile().getName().endsWith(".rar")){ //if file is zip or rar
                 try{
-                    unzip(f, basePath);
+                    unzip(f, outputPath);
                 }
                 catch (FileNotFoundException fileErr){
                     System.out.println("Error while unzipping single item: " + fileErr);
@@ -156,24 +156,20 @@ public class rawRead{
             JSONObject lineJson = new JSONObject();
             //store data in json object
             //fields follow: https://www.valuergeneral.nsw.gov.au/__data/assets/pdf_file/0016/216403/Property_Sales_Data_File_-_Data_Elements_V3.pdf 
-            lineJson.put("District_Code", spliced[1]);
-            lineJson.put("Property_ID", spliced[2]);
-            lineJson.put("Property_Name", spliced[5]);
-            lineJson.put("Strata_Lot_Number", spliced[19]);
-            lineJson.put("Property_Unit_Number", spliced[6]);
-            lineJson.put("Property_House_Number", spliced[7]);
-            lineJson.put("Property_Street_Name", spliced[8]);
-            lineJson.put("Property_Locality", spliced[9]);
-            lineJson.put("Property_Post_Code", spliced[10]);
-            lineJson.put("Property_Area", spliced[11]);
-            lineJson.put("Property_Area_Measurement_Type", spliced[12]);
-            lineJson.put("Property_Nature", spliced[17]);
-            lineJson.put("Property_Purpose", spliced[18]);
-            lineJson.put("Contract_Date", lineDate(spliced[13]));
-            lineJson.put("Settlement_Date", lineDate(spliced[14]));
-            lineJson.put("Purchase_Price", spliced[15]);
-            lineJson.put("Zone_Class", spliced[16]);
-            lineJson.put("Dealing_number", spliced[23]); //unique identifier for each json object
+            lineJson.put("D_Code", spliced[1]); //District Code
+            lineJson.put("SL_Num", spliced[19]); //Strata lot number
+            lineJson.put("P_U_Num", spliced[6]); //Property Unit number
+            lineJson.put("P_H_Num", spliced[7]); //Property House number
+            lineJson.put("P_S_Name", spliced[8]); //Property Street name
+            lineJson.put("P_Sub", spliced[9]);  //Property suburb
+            lineJson.put("P_Code", spliced[10]); //Post code
+            lineJson.put("P_Area", spliced[11]); //Area of property
+            lineJson.put("Area_Type", spliced[12]); //Area Type Metres/Hectares
+            lineJson.put("P_Purp", spliced[18]); //Property Purpose
+            lineJson.put("C_Date", lineDate(spliced[13])); //Contract Date
+            lineJson.put("S_Date", lineDate(spliced[14])); //Settlement Date
+            lineJson.put("P_Price", spliced[15]); //Purchase Price
+            lineJson.put("D_num", spliced[23]); //unique identifier for each json object
             return lineJson;
         }
         return null;
@@ -235,14 +231,15 @@ public class rawRead{
     }
 
     public static void main(String[] args) throws IOException{
+        String year = "2018";
         String sbasePath = new File("").getAbsolutePath();
         String jsonFolderpath = sbasePath + "/Server/Data/json_data";
-        String combinedPath = sbasePath + "/Server/Data/Raw Bulk Data/2020";
+        String combinedPath = sbasePath + "/Server/Data/Raw Bulk Data/" + year;
         Path path = Paths.get(combinedPath);
         List<Path> files = listFiles(path);
-        //datToJson(files, jsonFolderpath, "2020_data");
-        readJSON(jsonFolderpath + "/2020_data.json");
-
+        //unzipFiles(path, combinedPath);
+        datToJson(files, jsonFolderpath, year + "_data");
+        //readJSON(jsonFolderpath + "/2020_data.json");
 
 
     }//END OF MAIN
