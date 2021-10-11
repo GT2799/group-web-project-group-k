@@ -1,41 +1,18 @@
 JSON File format example:
 
 {"Entries":[
-	{"Property_Nature":"R",
-	"Contract_Date":"2019-11-16", <- dates are handled as yyyy-MM-dd
-	"District_Code":"001",
-	"Property_Locality":"ABERDARE",
-	"Property_Area_Measurement_Type":"M", <- Either M or H to signify Metres/Hectares respectively
-	"Property_Post_Code":"2325",
-	"Property_Purpose":"RESIDENCE",
-	"Property_House_Number":"103",
-	"Settlement_Date":"2019-12-30",
-	"Property_ID":"1667",
-	"Property_Area":"1011.83",
-	"Zone_Class":"R2",
-	"Property_Street_Name":"RAWSON ST",
-	"Purchase_Price":"260000",
-	"Dealing_number":"AP807655", <- should be unique per entry
-	"Property_Name":"",
-	"Strata_Lot_Number":"",
-	"Property_Unit_Number":""},
-
-	{"Property_Nature":"R",
-	"Contract_Date":"2019-11-16",
-	"District_Code":"001",
-	"Property_Locality":"ABERDARE",
-	"Property_Area_Measurement_Type":"M",
-	"Property_Post_Code":"2325",
-	"Property_Purpose":"RESIDENCE",
-	"Property_House_Number":"103",
-	"Settlement_Date":"2019-12-30",
-	"Property_ID":"1667",
-	"Property_Area":"1011.83",
-	"Zone_Class":"R2",
-	"Property_Street_Name":"RAWSON ST",
-	"Purchase_Price":"260000",
-	"Dealing_number":"AP807655",
-	"Property_Name":"",
-	"Strata_Lot_Number":"",
-	"Property_Unit_Number":""}
+	{"C_Date":"2019-11-16", 	<- dates are handled as yyyy-MM-dd
+	"D_Code":"001", 		<- District Code
+	"P_Sub":"ABERDARE", 	<- Propert Suburb
+	"Area_Type":"M", 		<- Either M or H to signify Metres/Hectares respectively
+	"P_Code":"2325", 		<- Post Code
+	"P_Purp":"RESIDENCE", 	<- Purpose of Property
+	"P_H_Num":"103", 		<- Property House Number
+	"S_Date":"2019-12-30", 	<- Date of settlement
+	"P_Area":"1011.83", 	<- Area of Property
+	"P_S_Name":"RAWSON ST", <- Property Street name
+	"P_Price":"260000", 	<- Property Price
+	"D_num":"AP807655", 	<- Dealing Number
+	"SL_Num":"", 		<- Strata Lot Number
+	"P_U_Num":""} 			<- Property Unit Number
 ]}
