@@ -56,6 +56,28 @@ Back end:
 npm run dev
 ```
 
+### Further information:
+#### JSON Data Structure example:
+
+```
+{"Entries":[
+	{"C_Date":"2019-11-16", <- dates are handled as yyyy-MM-dd
+	"D_Code":"001", 		<- District Code
+	"P_Sub":"ABERDARE", 	<- Propert Suburb
+	"Area_Type":"M", 		<- Either M or H to signify Metres/Hectares respectively
+	"P_Code":"2325", 		<- Post Code
+	"P_Purp":"RESIDENCE", 	<- Purpose of Property
+	"P_H_Num":"103", 		<- Property House Number
+	"S_Date":"2019-12-30", 	<- Date of settlement
+	"P_Area":"1011.83", 	<- Area of Property
+	"P_S_Name":"RAWSON ST", <- Property Street name
+	"P_Price":"260000", 	<- Property Price ($AUD)
+	"D_num":"AP807655", 	<- Dealing Number
+	"SL_Num":"", 		    <- Strata Lot Number
+	"P_U_Num":""} 			<- Property Unit Number
+]}
+```
+
 ### Contributors
 + 45317755 - Kent Ye            [Backend Development   | Data acquisition and cleanup]
 + 45953260 - Justin Lie         [Frontend Development  | Backend Assistance]
