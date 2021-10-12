@@ -35,7 +35,7 @@ Requirements needed to run app:
 + nodemon
 
 ### Data Sources:
-NSW Bulk Property Sales Data: https://valuation.property.nsw.gov.au/embed/propertySalesInformation
+NSW Bulk Property Sales Data: https://valuation.property.nsw.gov.au/embed/propertySalesInformation  
 (Currently we are using 2001-2020)
 ### Usage
 Clone: 
@@ -65,36 +65,36 @@ npm run dev
 #### Project Source Code Guide:
 + Back-End related components can be found in: `./Server/`
 + Front-End related components can be found in: `./src/`
-+ All data can be found in: `./Server/Data`
++ All data can be found in: `./Server/Data/`
 + Json data can be found in: `./Server/Data/json_data/`
-+ Annual json data can be found in: `./Server/Data/json_data/Annual_data`
-+ Suburb json data can be found in: `./Server/Data/json_data/Suburb_data`
++ Annual json data can be found in: `./Server/Data/json_data/Annual_data/`
++ Suburb json data can be found in: `./Server/Data/json_data/Suburb_data/`
 + Functions used to convert raw NSW Real Estate Data are found in: `./Server/Data/rawRead.java`
 #### JSON Data Structure example:
 
 ```
 {"Entries":[
-	{"C_Date":"2019-11-16", <- dates are handled as yyyy-MM-dd
-	"D_Code":"001", 		<- District Code
-	"P_Sub":"ABERDARE", 	<- Propert Suburb
-	"Area_Type":"M", 		<- Either M or H to signify Metres/Hectares respectively
-	"P_Code":"2325", 		<- Post Code
-	"P_Purp":"RESIDENCE", 	<- Purpose of Property
-	"P_H_Num":"103", 		<- Property House Number
-	"S_Date":"2019-12-30", 	<- Date of settlement
-	"P_Area":"1011.83", 	<- Area of Property
-	"P_S_Name":"RAWSON ST", <- Property Street name
-	"P_Price":"260000", 	<- Property Price ($AUD)
-	"D_Num":"AP807655", 	<- Dealing Number
-	"SL_Num":"", 		    <- Strata Lot Number
-	"P_U_Num":""} 			<- Property Unit Number
+	{"C_Date":"2019-11-16",         <- dates are handled as yyyy-MM-dd
+	"D_Code":"001",         <- District Code
+	"P_Sub":"ABERDARE",         <- Propert Suburb
+	"Area_Type":"M",            <- Either M or H to signify Metres/Hectares respectively
+	"P_Code":"2325",            <- Post Code
+	"P_Purp":"RESIDENCE",           <- Purpose of Property
+	"P_H_Num":"103",            <- Property House Number
+	"S_Date":"2019-12-30",          <- Date of settlement
+	"P_Area":"1011.83",         <- Area of Property
+	"P_S_Name":"RAWSON ST",         <- Property Street name
+	"P_Price":"260000",         <- Property Price ($AUD)
+	"D_Num":"AP807655",         <- Dealing Number
+	"SL_Num":"",            <- Strata Lot Number
+	"P_U_Num":""}           <- Property Unit Number
 ]}
 ```
 
 ### Interaction and Communication:
-Our main interaction and communication during this project was done via Discord which is a VoIP, instant messaging and digital distribution platform.
-Group meetings are held every Monday on a Discord Channel where we discuss our current progress with the project and any issues.
-Further communication is done with instant-messaging in the Discord Server.
+Our main interaction and communication during this project was done via Discord which is a VoIP, instant messaging and digital distribution platform.  
+Group meetings are held every Monday on a Discord Channel where we discuss our current progress with the project and any issues.  
+Further communication is done with instant-messaging in the Discord Server.  
 Resource distribution is done via the resource text-channel within the Discord Server.
 
 ### Post-Implementation: Next-steps
