@@ -74,18 +74,18 @@ npm run dev
 
 ```
 {"Entries":[
-	{"C_Date":"2019-11-16",         <- dates are handled as yyyy-MM-dd
+	{"C_Date":"2019-11-16", <- dates are handled as yyyy-MM-dd
 	"D_Code":"001",         <- District Code
-	"P_Sub":"ABERDARE",         <- Propert Suburb
-	"Area_Type":"M",            <- Either M or H to signify Metres/Hectares respectively
-	"P_Code":"2325",            <- Post Code
-	"P_Purp":"RESIDENCE",           <- Purpose of Property
-	"P_H_Num":"103",            <- Property House Number
-	"S_Date":"2019-12-30",          <- Date of settlement
-	"P_Area":"1011.83",         <- Area of Property
-	"P_S_Name":"RAWSON ST",         <- Property Street name
-	"P_Price":"260000",         <- Property Price ($AUD)
-	"D_Num":"AP807655",         <- Dealing Number
+	"P_Sub":"ABERDARE",     <- Propert Suburb
+	"Area_Type":"M",        <- Either M or H to signify Metres/Hectares respectively
+	"P_Code":"2325",        <- Post Code
+	"P_Purp":"RESIDENCE",   <- Purpose of Property
+	"P_H_Num":"103",        <- Property House Number
+	"S_Date":"2019-12-30",  <- Date of settlement
+	"P_Area":"1011.83",     <- Area of Property
+	"P_S_Name":"RAWSON ST", <- Property Street name
+	"P_Price":"260000",     <- Property Price ($AUD)
+	"D_Num":"AP807655",     <- Dealing Number
 	"SL_Num":"",            <- Strata Lot Number
 	"P_U_Num":""}           <- Property Unit Number
 ]}
@@ -99,7 +99,7 @@ Resource distribution is done via the resource text-channel within the Discord S
 
 ### Post-Implementation: Next-steps
 + Incorporate 2021 Weekly data: Our App currently only has data for 2001-2020.
-+ Data Clean up: There is currently no method for detecting whether the JSON_DATA in these entries are valid i.e. No typos, Correct address, Correct formatting for dates.
++ Data Clean up: There is currently no method for detecting whether the JSON_DATA in these entries are valid i.e. No typos, Correct address, Correct formatting, Required fields exist.
 + Automatic Data retrieval: With more time we could create a web scraper which runs periodically every week after the weekly data release date and automatically takes the data,extracts and cleans it into our suburb_data files.
 + Add more States: Expand the app for other states in Australia.
 + Login Function: Allow the user to save certain addresses and information
