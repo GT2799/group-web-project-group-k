@@ -35,7 +35,8 @@ Requirements needed to run app:
 + nodemon
 
 ### Data Sources:
-2001 - 2020 inclusive: https://valuation.property.nsw.gov.au/embed/propertySalesInformation
+NSW Bulk Property Sales Data: https://valuation.property.nsw.gov.au/embed/propertySalesInformation
+(Currently we are using 2001-2020)
 ### Usage
 Clone: 
 
