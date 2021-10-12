@@ -3,7 +3,7 @@ JSON File format example:
 {"Entries":[
 	{"C_Date":"2019-11-16", 	<- dates are handled as yyyy-MM-dd
 	"D_Code":"001", 		<- District Code
-	"P_Sub":"ABERDARE", 	<- Propert Suburb
+	"P_Sub":"ABERDARE", 	<- Property Suburb
 	"Area_Type":"M", 		<- Either M or H to signify Metres/Hectares respectively
 	"P_Code":"2325", 		<- Post Code
 	"P_Purp":"RESIDENCE", 	<- Purpose of Property
