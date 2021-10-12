@@ -12,7 +12,7 @@ Users are able to click on different properties on the map and get the respectiv
 
 + Week 10:
     + **UNFINISHED** Back End Implementation
-    + **UNFINISHED** Data source Implementation: Bulk Data Clean up or Domain API Implementation
+    + **DONE** Data source Implementation: Bulk Data Clean up or Domain API Implementation
     + **UNFINISHED** API Get Request Handling
     + **UNFINISHED** API Post Request Handling
 
