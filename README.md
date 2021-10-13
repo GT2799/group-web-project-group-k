@@ -1,6 +1,6 @@
 # Real Estate Data Map App
 ### Purpose
-To provide an easy to use platform where users can get an informed idea of individual housing prices of properties within Sydney.
+To provide an easy to use platform where users can get an informed idea of individual housing prices of properties within Sydney.  
 Users are able to click on different properties on the map and get the respective sales information.
 
 ### Users
@@ -92,21 +92,21 @@ npm run dev
 ```
 
 ### Interaction and Communication:
-Our main interaction and communication during this project was done via Discord which is a VoIP, instant messaging and digital distribution platform.  
-Group meetings are held every Monday on a Discord Channel where we discuss our current progress with the project and any issues.  
-Further communication is done with instant-messaging in the Discord Server.  
-Resource distribution is done via the resource text-channel within the Discord Server.
++ Our main interaction and communication during this project was done via Discord which is a VoIP, instant messaging and digital distribution platform.
++ Group meetings are held every Monday on a Discord Channel where we discuss our current progress with the project and any issues.
++ Further communication is done with instant-messaging in the Discord Server.
++ Resource distribution is done via the resource text-channel within the Discord Server.
 
 ### Post-Implementation: Next-steps
-+ Incorporate 2021 Weekly data: Our App currently only has data for 2001-2020.
-+ Data Clean up: There is currently no method for detecting whether the JSON_DATA in these entries are valid i.e. No typos, Correct address, Correct formatting, Required fields exist.
-+ Automatic Data retrieval: With more time we could create a web scraper which runs periodically every week after the weekly data release date and automatically takes the data,extracts and cleans it into our suburb_data files.
-+ Add more States: Expand the app for other states in Australia.
-+ Login Function: Allow the user to save certain addresses and information
-+ Graphs implementation: Present the data in a graphical format allowing for more clear and simplified information
++ **Incorporate 2021 Weekly data:** Our App currently only has data for 2001-2020.
++ **Data Clean up:** There is currently no method for detecting whether the JSON_DATA in these entries are valid i.e. No typos, Correct address, Correct formatting, Required fields exist.
++ **Automatic Data retrieval:** With more time we could create a web scraper which runs periodically every week after the weekly data release date and automatically takes the data,extracts and cleans it into our suburb_data files.
++ **Add more States:** Expand the app for other states in Australia.
++ **Login Function:** Allow the user to save certain addresses and information
++ **Graphs implementation:** Present the data in a graphical format allowing for more clear and simplified information
 
 ### Contributors
-+ 45317755 - Kent Ye            [Backend Development   | Data acquisition and cleanup]
-+ 45953260 - Justin Lie         [Frontend Development  | Backend Assistance]
-+ 45782334 - Erick Hartawan     [Fullstack Developer   | Connecting Frontend and Backend via various APIs]
-+ 45577323 - Grishit taneja     [Front end development | Documentations]
++ 45317755 - Kent Ye            [Backend Development   | Data acquisition and cleanup]
++ 45953260 - Justin Lie         [Frontend Development  | Backend Assistance]
++ 45782334 - Erick Hartawan     [Fullstack Developer   | Connecting Frontend and Backend via various APIs]
++ 45577323 - Grishit taneja     [Front end development | Documentations]
