@@ -1,12 +1,6 @@
 # Real Estate Data Map App
-
 ### Purpose
-<<<<<<< HEAD
-
-To provide an easy to use platform where users can get an informed idea of individual housing prices of properties within Sydney.
-=======
 To provide an easy to use platform where users can get an informed idea of individual housing prices of properties within Sydney.  
->>>>>>> f0dd74df9def155b17cb8bfcd7b1e34c85999d85
 Users are able to click on different properties on the map and get the respective sales information.
 
 ### Users
@@ -33,31 +27,24 @@ Our target demographic is mostly NSW first home buyers where they can use a simp
 + Week 12: 
     + **UNFINISHED** Back-End Testing 
     + **UNFINISHED** Front-End Testing
-    + **UNFINISHED** Additional Functionality & CSS toucgit hups
+    + **UNFINISHED** Additional Functionality & CSS touchups
 
 ### Requirements:
-
 Requirements needed to run app:
++ npm
++ nodemon
 
-<<<<<<< HEAD
--   npm
--   nodemon
-
-=======
 ### Data Sources:
 NSW Bulk Property Sales Data: https://valuation.property.nsw.gov.au/embed/propertySalesInformation  
 (Currently we are using 2001-2020)
->>>>>>> f0dd74df9def155b17cb8bfcd7b1e34c85999d85
 ### Usage
-
-Clone:
+Clone: 
 
 ```
 git clone https://github.com/MQCOMP3120-2021/group-web-project-group-k.git
 ```
 
 Project Installation:
-
 ```
 npm install
 ```
@@ -119,15 +106,7 @@ npm run dev
 + **Graphs implementation:** Present the data in a graphical format allowing for more clear and simplified information
 
 ### Contributors
-<<<<<<< HEAD
-
--   45317755 - Kent Ye [Backend Development | Data acquisition and cleanup]
--   45953260 - Justin Lie [Frontend Development | Backend Assistance]
--   45782334 - Erick Hartawan [Fullstack Developer | Connecting Frontend and Backend via various APIs]
--   45577323 - Grishit taneja [Front end development | Documentations]
-=======
 + 45317755 - Kent Ye                 [Backend Development   | Data acquisition and cleanup]
 + 45953260 - Justin Lie              [Frontend Development  | Backend Assistance]
 + 45782334 - Erick Hartawan     [Fullstack Developer        | Connecting Frontend and Backend via various APIs]
 + 45577323 - Grishit taneja        [Front end development | Documentations]
->>>>>>> f0dd74df9def155b17cb8bfcd7b1e34c85999d85
