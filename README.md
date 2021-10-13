@@ -106,7 +106,7 @@ npm run dev
 + **Graphs implementation:** Present the data in a graphical format allowing for more clear and simplified information
 
 ### Contributors
-+ 45317755 - Kent Ye            [Backend Development   | Data acquisition and cleanup]
-+ 45953260 - Justin Lie         [Frontend Development  | Backend Assistance]
-+ 45782334 - Erick Hartawan     [Fullstack Developer   | Connecting Frontend and Backend via various APIs]
-+ 45577323 - Grishit taneja     [Front end development | Documentations]
++ 45317755 - Kent Ye                 [Backend Development   | Data acquisition and cleanup]
++ 45953260 - Justin Lie              [Frontend Development  | Backend Assistance]
++ 45782334 - Erick Hartawan     [Fullstack Developer        | Connecting Frontend and Backend via various APIs]
++ 45577323 - Grishit taneja        [Front end development | Documentations]
