@@ -1,55 +1,91 @@
-
-import React, {Component} from "react"
+import React, { Component, useState } from "react"
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react"
-import "./Map.module.css"
+import axios from "axios"
+
+import st from "./Map.module.css"
 import { API } from "./API"
 
+const coords = { lat: -21.805149, lng: -49.0921657 }
 
-const coords = { lat: -21.805149, lng: -49.0921657 };
-  
-class MapCont extends React.Component {
-    
-    onMapClicked(mapProps, map, clickEvent) {
-        console.log("Below is the Lat and Long of the clicked point")
+function MapCont(props) {
+    const [result, setResult] = useState()
+
+    const baseURL = "https://maps.googleapis.com/maps/api/geocode/json?latlng="
+    const suffixURL = `&result_type=street_address&key=${API}`
+    const init = {
+        lat: -33.7736594370602,
+        lng: 151.11362303011666,
+    }
+
+    const onMapClicked = (mapProps, map, clickEvent) => {
+        console.log("lang and lat")
+        const latLngArr = getLatLng(clickEvent) // array returned
+        const latLngStr = latLngToString(latLngArr) // extract array and turn them into string
+
+        // construct URL
+        const finalURL = `${baseURL}${latLngStr}${suffixURL}`
+        console.log(finalURL)
+        axios
+            .get(finalURL)
+            .then((res) => {
+                const { plus_code, results, status } = res.data
+                if (status == "OK") {
+                    console.log(res.data)
+                    setResult(res.data)
+                    // console.log(result)
+                } else if (status == "ZERO_RESULTS") {
+                    alert("No result")
+                }
+            })
+            .catch((e) => {
+                throw e
+            })
+    }
+
+    const latLngToString = (arr) => {
+        let finalString = ""
+        let latStr = arr[0].lat.toString()
+        let lngStr = arr[1].long.toString()
+        finalString = `${latStr},${lngStr}`
+        console.log(finalString)
+        return finalString
+    }
+
+    // get latlng from clickEvent
+    const getLatLng = (clickEvent) => {
         let pos = []
         const lat = clickEvent.latLng.lat()
         const lng = clickEvent.latLng.lng()
         pos.push({ lat: lat })
         pos.push({ long: lng })
-        console.log(pos)
+        return pos
     }
-    render() {
-      const style = {
-        maxWidth: "450px",
-        height: "350px",
-        overflowX: "hidden",
-        overflowY: "hidden"
-       };
-       const containerStyle = {
-        maxWidth: "450px",
-        height: "350px"
-       };
 
-        return (
-          <div>
-              <h3> Hello </h3>
+    const style = {
+        maxWidth: "100%",
+        height: "100%",
+        overflowX: "hidden",
+        overflowY: "hidden",
+    }
+    return (
+        <div className={st.container}>
+            <div className={st.side}>
+                <p>{result ? "we have a result lol" : "no target selected"}</p>
+            </div>
+            <div className={st.map}>
                 <Map
                     resetBoundsOnResize={true}
-                    google={this.props.google}
+                    google={props.google}
                     zoom={18}
-                    style={style} containerStyle={containerStyle}
-                    size = { 500, 500 } // map size in px
-                    onClick={this.onMapClicked}
-                    initialCenter={{
-                        lat: -33.7736594370602,
-                        lng: 151.11362303011666,
-                    }}
+                    style={style}
+                    onClick={onMapClicked}
+                    initialCenter={init}
                 >
-                <Marker position={coords} />
+                    <Marker position={coords} />
                 </Map>
-          </div>
-        )
-    }
+            </div>
+        </div>
+    )
 }
 export default GoogleApiWrapper({
     apiKey: API,

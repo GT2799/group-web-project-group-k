@@ -26,8 +26,7 @@ Users are able to click on different properties on the map and get the respectiv
 + Week 12: 
     + **UNFINISHED** Back-End Testing 
     + **UNFINISHED** Front-End Testing
-    + **UNFINISHED** Additional Functionality & CSS touchups
->>>>>>> 8860450c36d09e40711c329726d2956b04ccc38b
+    + **UNFINISHED** Additional Functionality & CSS toucgit hups
 
 ### Requirements:
 

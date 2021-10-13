@@ -15,6 +15,7 @@ import ProductHero from "./page/home/ProductHero"
 import ProductHowItWorks from "./page/home/ProductHowItWorks"
 import ProductSmokingHero from "./page/home/ProductSmokingHero"
 import ProductValues from "./page/home/ProductValues"
+
 function App() {
     return (
         <Router>
