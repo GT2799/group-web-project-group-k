@@ -32,7 +32,7 @@ function MapCont(props) {
                 if (status == "OK") {
                     console.log(res.data)
                     setResult(res.data)
-                    // console.log(result)
+                    console.log(result)
                 } else if (status == "ZERO_RESULTS") {
                     alert("No result")
                 }
@@ -61,6 +61,7 @@ function MapCont(props) {
         return pos
     }
 
+
     const style = {
         maxWidth: "100%",
         height: "100%",
@@ -70,7 +71,7 @@ function MapCont(props) {
     return (
         <div className={st.container}>
             <div className={st.side}>
-                <p>{result ? "we have a result lol" : "no target selected"}</p>
+                <p>{JSON.stringify(result)}</p>
             </div>
             <div className={st.map}>
                 <Map
