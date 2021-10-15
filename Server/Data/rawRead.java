@@ -257,7 +257,7 @@ public class rawRead{
         return jsonObject;
     }
 
-    //convert all .dat files into it's correct 
+    //convert all .dat files into a concatenated json
     public static void bulkConversion(Path dataFolderPath, Path jsonOutputFolderPath){// params:(input,output)
         //Loop through bulkdata folders
         try(Stream<Path> dataFolders = Files.list(dataFolderPath)) {
