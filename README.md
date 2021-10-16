@@ -14,10 +14,10 @@ Our target demographic is mostly NSW first home buyers where they can use a simp
     + **DONE** Google Maps API connection with Front-End components
 
 + Week 10:
-    + **UNFINISHED** Back End Implementation
+    + **DONE** Back End Implementation
     + **DONE** Data source Implementation: Bulk Data Clean up or Domain API Implementation
-    + **UNFINISHED** API Get Request Handling
-    + **UNFINISHED** API Post Request Handling
+    + **DONE** API Get Request Handling
+    + **DONE** API Post Request Handling
 
 + Week 11:
     + **UNFINISHED** User Click Functionality for Maps returns: Address and Sales History if applicable

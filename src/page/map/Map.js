@@ -4,6 +4,7 @@ import axios from "axios"
 
 import st from "./Map.module.css"
 import { API } from "./API"
+import Sideinfo from "./Sideinfo"
 
 const coords = { lat: -21.805149, lng: -49.0921657 }
 
@@ -11,6 +12,7 @@ function MapCont(props) {
     const [result, setResult] = useState()
     const [suburb, setSuburb] = useState()
     const [addrs, setAddrs] = useState([])
+    const [apiResponse, setApiResponse] = useState([])
 
     const baseURL = "https://maps.googleapis.com/maps/api/geocode/json?latlng="
     const suffixURL = `&result_type=street_address&key=${API}`
@@ -52,7 +54,10 @@ function MapCont(props) {
                             suburb: suburb,
                             addrs: addrs,
                         })
-                        .then((res) => console.log(res.data))
+                        .then((res) => {
+                            console.log(res.data)
+                            setApiResponse(res.data)
+                        })
                 } else if (status == "ZERO_RESULTS") {
                     alert("No result")
                 }
@@ -61,7 +66,6 @@ function MapCont(props) {
                 throw e
             })
     }
-
     const latLngToString = (arr) => {
         let finalString = ""
         let latStr = arr[0].lat.toString()
@@ -95,6 +99,7 @@ function MapCont(props) {
         <div className={st.container}>
             <div className={st.side}>
                 <p>{JSON.stringify(addrs)}</p>
+                <div><Sideinfo api={apiResponse}/></div>
             </div>
             <div className={st.map}>
                 <Map
