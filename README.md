@@ -18,6 +18,7 @@ Our target demographic is mostly NSW first home buyers where they can use a simp
     + **DONE** Data source Implementation: Bulk Data Clean up or Domain API Implementation
     + **DONE** API Get Request Handling
     + **DONE** API Post Request Handling
+    + **additional** Map marker on click
 
 + Week 11:
     + **DONE** User Click Functionality for Maps returns: Address and Sales History if applicable
