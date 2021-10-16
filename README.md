@@ -20,7 +20,7 @@ Our target demographic is mostly NSW first home buyers where they can use a simp
     + **DONE** API Post Request Handling
 
 + Week 11:
-    + **UNFINISHED** User Click Functionality for Maps returns: Address and Sales History if applicable
+    + **DONE** User Click Functionality for Maps returns: Address and Sales History if applicable
     + **UNFINISHED** Control Behaviour (Error control)
     + **UNFINISHED** CSS Styling
 
@@ -70,6 +70,8 @@ npm run dev
 + Annual json data can be found in: `./Server/Data/json_data/Annual_data/`
 + Suburb json data can be found in: `./Server/Data/json_data/Suburb_data/`
 + Functions used to convert raw NSW Real Estate Data are found in: `./Server/Data/rawRead.java`
++ Map functionality is found in: `./src/page/Map.js`
++ Sales data display is found in: `./src/page/Sideinfo.js`
 #### JSON Data Structure example:
 
 ```
