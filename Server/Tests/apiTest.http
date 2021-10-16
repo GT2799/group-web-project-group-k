@@ -2,6 +2,6 @@ POST http://localhost:5000/api
 content-Type: application/json
 
 {
-    "suburb": "CONNELS POINT",
-    "addrs": "53, Homedale Cres"
+    "suburb": "YAGOONA",
+    "addrs": [["22" ,"Bamfield Ave"]]
 }

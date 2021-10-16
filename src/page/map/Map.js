@@ -6,7 +6,6 @@ import st from "./Map.module.css"
 import { API } from "./API"
 import Sideinfo from "./Sideinfo"
 
-const coords = { lat: -21.805149, lng: -49.0921657 }
 
 function MapCont(props) {
     const [result, setResult] = useState()
@@ -21,10 +20,22 @@ function MapCont(props) {
         lng: 151.11362303011666,
     }
 
+    //Marker location
+    const[lat, setLat] = useState(-33.7736594370602)
+    const[lng, setLng] = useState(151.11362303011666)
+    var latlng = {
+        lat: lat,
+        lng: lng,
+    }
+
+
     const onMapClicked = (mapProps, map, clickEvent) => {
         console.log("lang and lat")
         const latLngArr = getLatLng(clickEvent) // array returned
         const latLngStr = latLngToString(latLngArr) // extract array and turn them into string
+        //Marker location
+        setLat(latLngArr[0].lat)
+        setLng(latLngArr[1].lng)
         // construct URL
         const finalURL = `${baseURL}${latLngStr}${suffixURL}`
         console.log(finalURL)
@@ -66,6 +77,7 @@ function MapCont(props) {
                 throw e
             })
     }
+
     const latLngToString = (arr) => {
         let finalString = ""
         let latStr = arr[0].lat.toString()
@@ -109,9 +121,8 @@ function MapCont(props) {
                     style={style}
                     containerStyle={containerStyle}
                     onClick={onMapClicked}
-                    initialCenter={init}
-                >
-                    <Marker position={coords} />
+                    initialCenter={init}>
+                    <Marker position={latlng}/>
                 </Map>
             </div>
         </div>
