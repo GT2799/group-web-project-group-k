@@ -21,8 +21,8 @@ function MapCont(props) {
     }
 
     //Marker location
-    const[lat, setLat] = useState(-33.7736594370602)
-    const[lng, setLng] = useState(151.11362303011666)
+    const[lat, setLat] = useState()
+    const[lng, setLng] = useState()
     var latlng = {
         lat: lat,
         lng: lng,
@@ -117,7 +117,7 @@ function MapCont(props) {
                 <Map
                     resetBoundsOnResize={true}
                     google={props.google}
-                    zoom={18}
+                    zoom={13}
                     style={style}
                     containerStyle={containerStyle}
                     onClick={onMapClicked}
