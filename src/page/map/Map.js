@@ -1,6 +1,7 @@
 import React, { Component, useState } from "react"
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react"
 import axios from "axios"
+import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 
 import st from "./Map.module.css"
 import { API } from "./API"
@@ -107,7 +108,9 @@ function MapCont(props) {
         maxWidth: "100%",
         height: "80vh",
     }
+      
     return (
+        
         <div className={st.container}>
             {/*
             <div className={st.side}>
@@ -116,6 +119,7 @@ function MapCont(props) {
             </div> 
             */}
             <div className={st.map}>
+            <GooglePlacesAutocomplete apiKey = {API} />
                 <Map
                     resetBoundsOnResize={true}
                     google={props.google}
