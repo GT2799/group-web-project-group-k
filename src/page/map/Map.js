@@ -165,7 +165,7 @@ function MapCont(props) {
         height: "5vh",
         position: "absolute",
         top: "25vh",
-        zIndex: "2",
+        zIndex: "3",
         marginLeft:"30vw",
         marginRight:"30vw",
 
@@ -180,7 +180,12 @@ function MapCont(props) {
             </div> 
     */}
             <div className={st.map}>
-                <div className={st.searchContainer}/>
+                <div className={st.searchContainer}>
+                    <p className={st.searchContainerText}>Search Properties</p>
+                    <div className={st.searchContainerActiveState}>
+                        <text className={st.activeStateText}>NSW</text>
+                    </div>
+                </div>
                 <Autocomplete
                     apiKey={API}
                     style={searchStyle}
