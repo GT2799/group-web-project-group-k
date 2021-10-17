@@ -1,7 +1,7 @@
 import React, { Component, useState } from "react"
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react"
 import axios from "axios"
-import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
+import Autocomplete from "react-google-autocomplete";
 
 import st from "./Map.module.css"
 import { API } from "./API"
@@ -117,7 +117,18 @@ function MapCont(props) {
                 <div><Sideinfo api={apiResponse}/></div>
             </div>
             <div className={st.map}>
-            <GooglePlacesAutocomplete apiKey = {API} />
+                <Autocomplete
+                    apiKey={API}
+                    style={{ width: "90%" }}
+                    onPlaceSelected={(place) => {
+                        console.log(place);
+                    }}
+                    options={{
+                        types: ["(regions)"],
+                        componentRestrictions: { country: "ru" },
+                    }}
+                    defaultValue="Amsterdam"
+                />;
                 <Map
                     resetBoundsOnResize={true}
                     google={props.google}
