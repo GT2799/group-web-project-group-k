@@ -106,7 +106,18 @@ function MapCont(props) {
     }
     const containerStyle = {
         maxWidth: "100%",
-        height: "80vh",
+        height: "77vh",
+    }
+
+    const searchStyle = {
+        textInputContainer: {
+            backgroundColor: 'grey',
+          },
+          textInput: {
+            height: 38,
+            color: '#5d5d5d',
+            fontSize: 16,
+          },
     }
       
     return (
@@ -119,7 +130,10 @@ function MapCont(props) {
             </div> 
             */}
             <div className={st.map}>
-            <GooglePlacesAutocomplete apiKey = {API} />
+                <GooglePlacesAutocomplete 
+                    apiKey = {API}
+                    styles = {searchStyle}
+                    />
                 <Map
                     resetBoundsOnResize={true}
                     google={props.google}

@@ -47,7 +47,7 @@ const styles = (theme) => ({
     },
     arrowDown: {
         position: "absolute",
-        bottom: theme.spacing(4),
+        bottom: theme.spacing(1),
     },
 })
 
@@ -67,8 +67,8 @@ function ProductHeroLayout(props) {
                 <img
                     className={classes.arrowDown}
                     src="/productHeroArrowDown.png"
-                    height="16"
-                    width="12"
+                    height="20"
+                    width="20"
                     alt="arrow down"
                 />
             </Container>
