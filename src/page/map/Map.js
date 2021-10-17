@@ -137,10 +137,10 @@ function MapCont(props) {
                         console.log(place);
                     }}
                     options={{
-                        types: ["(regions)"],
-                        componentRestrictions: { country: "ru" },
+                        types: ["address"],
+                        componentRestrictions: { country: "au" },
                     }}
-                    defaultValue="Amsterdam"
+                    defaultValue="Macquarie University"
                 />;
                 <Map
                     resetBoundsOnResize={true}
