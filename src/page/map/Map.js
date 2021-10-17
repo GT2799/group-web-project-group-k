@@ -156,31 +156,34 @@ function MapCont(props) {
     }
     const containerStyle = {
         maxWidth: "100%",
-        height: "77vh",
+        height: "80vh",
+        top: "0vh",
     }
 
     const searchStyle = {
-        textInputContainer: {
-            backgroundColor: 'grey',
-          },
-          textInput: {
-            height: 38,
-            color: '#5d5d5d',
-            fontSize: 16,
-          },
+        width: "40vw",
+        height: "5vh",
+        position: "absolute",
+        top: "25vh",
+        zIndex: "2",
+        marginLeft:"30vw",
+        marginRight:"30vw",
+
     }
       
     return (
         
         <div className={st.container}>
-            <div className={st.side}>
+            {/*<div className={st.side}>
                 <p>{JSON.stringify(addrs)}</p>
                 <div><Sideinfo api={apiResponse}/></div>
             </div> 
+    */}
             <div className={st.map}>
+                <div className={st.searchContainer}/>
                 <Autocomplete
                     apiKey={API}
-                    style={{ width: "90%" }}
+                    style={searchStyle}
                     onPlaceSelected={(place) => {
                         placeSelected (place)
                     }}
