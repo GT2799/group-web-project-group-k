@@ -27,8 +27,10 @@
 }
 .side {
     flex: 1;
+    position: absolute;
     background-color: tomato;
     height: 100vh;
+    z-index: 1;
 }
 
 .map {

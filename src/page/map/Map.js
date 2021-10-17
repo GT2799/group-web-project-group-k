@@ -123,12 +123,12 @@ function MapCont(props) {
     return (
         
         <div className={st.container}>
-            {/*
+            
             <div className={st.side}>
                 <p>{JSON.stringify(addrs)}</p>
                 <div><Sideinfo api={apiResponse}/></div>
             </div> 
-            */}
+            
             <div className={st.map}>
                 <Autocomplete
                     apiKey={API}
