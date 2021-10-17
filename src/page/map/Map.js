@@ -2,6 +2,7 @@ import React, { Component, useState } from "react"
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react"
 import axios from "axios"
 import Autocomplete from "react-google-autocomplete";
+import { geocodeByAddress, getLatLng } from 'react-google-places-autocomplete';
 
 import st from "./Map.module.css"
 import { API } from "./API"
@@ -98,6 +99,55 @@ function MapCont(props) {
         return pos
     }
 
+    const placeSelected= (place) =>{
+        console.log(place)
+        console.log(typeof(place))
+        console.log(place.place_id)
+        console.log(place.geometry.location)
+        const latLngStr = place.geometry.location.lat
+
+        
+        const finalURL = `${baseURL}${latLngStr}${suffixURL}`
+        console.log(finalURL)
+        axios
+            .get(finalURL)
+            .then((res) => {
+                const { plus_code, results, status } = res.data
+                if (status == "OK") {
+                    const suburb =
+                        res.data.results[0].address_components[2].long_name
+                    setSuburb(suburb)
+
+                    setResult(res.data)
+                    let listOfAddr = []
+                    res.data.results.forEach((el) => {
+                        let temp = []
+                        let num = el.address_components[0].long_name
+                        let stName = el.address_components[1].short_name
+                        temp.push(num)
+                        temp.push(stName)
+                        listOfAddr.push(temp)
+                    })
+                    setAddrs(listOfAddr)
+
+                    axios
+                        .post("http://localhost:5000/api", {
+                            suburb: suburb,
+                            addrs: addrs,
+                        })
+                        .then((res) => {
+                            console.log(res.data)
+                            setApiResponse(res.data)
+                        })
+                } else if (status == "ZERO_RESULTS") {
+                    alert("No result")
+                }
+            })
+            .catch((e) => {
+                throw e
+            })
+    }
+
     const style = {
         maxWidth: "100%",
         height: "100%",
@@ -123,18 +173,16 @@ function MapCont(props) {
     return (
         
         <div className={st.container}>
-            
             <div className={st.side}>
                 <p>{JSON.stringify(addrs)}</p>
                 <div><Sideinfo api={apiResponse}/></div>
             </div> 
-            
             <div className={st.map}>
                 <Autocomplete
                     apiKey={API}
                     style={{ width: "90%" }}
                     onPlaceSelected={(place) => {
-                        console.log(place);
+                        placeSelected (place)
                     }}
                     options={{
                         types: ["address"],
