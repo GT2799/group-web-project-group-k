@@ -104,15 +104,17 @@ function MapCont(props) {
         overflowY: "hidden",
     }
     const containerStyle = {
-        maxWidth: "1200px",
-        height: "600px",
+        maxWidth: "100%",
+        height: "80vh",
     }
     return (
         <div className={st.container}>
+            {/*
             <div className={st.side}>
                 <p>{JSON.stringify(addrs)}</p>
                 <div><Sideinfo api={apiResponse}/></div>
-            </div>
+            </div> 
+            */}
             <div className={st.map}>
                 <Map
                     resetBoundsOnResize={true}
