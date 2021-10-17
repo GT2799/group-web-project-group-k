@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Component, useState } from "react"
 import PropTypes from "prop-types"
 import clsx from "clsx"
 import { withStyles } from "@material-ui/core/styles"
@@ -55,16 +55,33 @@ const styles = (theme) => ({
 function ProductHeroLayout(props) {
     const { backgroundClassName, children, classes } = props
 
+    const[Zind, setZ] = useState(3)
+    const zIndexOnClick = () => {
+        setZ(-2)
+    }
+    const zIndexOnScroll = () => {
+        setZ(3)
+    }
+
+    const divStyleO = {
+        position: "absolute",
+        zIndex: Zind,
+    }
+
+    document.addEventListener("scroll",zIndexOnScroll)
     return (
-        <section className={classes.root}>
-            <Container className={classes.container}>
+        <section className={classes.root} >
+            <div style={divStyleO}>
+                <Search/>
+            </div> 
+            <Container className={classes.container} onClick={zIndexOnClick}>
                 {//on top of background
                 }
                 {children}
                 <div className={classes.backdrop} />
                 <div className={classes.background}>
-                    <Search/>
                     <Map/>
+ 
                 </div>
                 <img
                     className={classes.arrowDown}

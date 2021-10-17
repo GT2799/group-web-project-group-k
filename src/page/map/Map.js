@@ -99,53 +99,14 @@ function MapCont(props) {
         return pos
     }
 
-    const placeSelected= (place) =>{
-        console.log(place)
-        console.log(typeof(place))
-        console.log(place.place_id)
-        console.log(place.geometry.location)
-        const latLngStr = place.geometry.location.lat
+    const[opacityState, setOpacity] = useState("80%")
 
-        
-        const finalURL = `${baseURL}${latLngStr}${suffixURL}`
-        console.log(finalURL)
-        axios
-            .get(finalURL)
-            .then((res) => {
-                const { plus_code, results, status } = res.data
-                if (status == "OK") {
-                    const suburb =
-                        res.data.results[0].address_components[2].long_name
-                    setSuburb(suburb)
+    const noOpacityonClick = (clickEvent) =>{
+        setOpacity("100%")
+    }
 
-                    setResult(res.data)
-                    let listOfAddr = []
-                    res.data.results.forEach((el) => {
-                        let temp = []
-                        let num = el.address_components[0].long_name
-                        let stName = el.address_components[1].short_name
-                        temp.push(num)
-                        temp.push(stName)
-                        listOfAddr.push(temp)
-                    })
-                    setAddrs(listOfAddr)
-
-                    axios
-                        .post("http://localhost:5000/api", {
-                            suburb: suburb,
-                            addrs: addrs,
-                        })
-                        .then((res) => {
-                            console.log(res.data)
-                            setApiResponse(res.data)
-                        })
-                } else if (status == "ZERO_RESULTS") {
-                    alert("No result")
-                }
-            })
-            .catch((e) => {
-                throw e
-            })
+    const opacityOnScroll = (scrollEvent) => {
+        setOpacity("80%")
     }
 
     const style = {
@@ -153,25 +114,19 @@ function MapCont(props) {
         height: "100%",
         overflowX: "hidden",
         overflowY: "hidden",
-    }
-    const containerStyle = {
-        maxWidth: "100%",
-        height: "80vh",
-        top: "0vh",
+        backgroundColor: "black",
     }
 
-    const searchStyle = {
-        width: "40vw",
-        height: "5vh",
-        position: "absolute",
-        top: "25vh",
-        zIndex: "3",
-        marginLeft:"30vw",
-        marginRight:"30vw",
-        fontSize:"2vh",
+    const containerStyle = {
+        position: "relative",
+        maxWidth: "100%",
+        height: "80vh",
+        opacity: opacityState,
     }
-    
-      
+    const divcontainer = {
+        opacity: opacityState,
+    }
+    document.addEventListener("scroll", opacityOnScroll)
     return (
         
         <div className={st.container}>
@@ -180,17 +135,19 @@ function MapCont(props) {
                 <div><Sideinfo api={apiResponse}/></div>
             </div> 
     */}
-            <div className={st.map}>
-                <Map
-                    resetBoundsOnResize={true}
-                    google={props.google}
-                    zoom={13}
-                    style={style}
-                    containerStyle={containerStyle}
-                    onClick={onMapClicked}
-                    initialCenter={init}>
-                    <Marker position={latlng}/>
-                </Map>
+            <div className={st.map} onClick={noOpacityonClick}>
+                <div style={divcontainer}>
+                    <Map
+                        resetBoundsOnResize={true}
+                        google={props.google}
+                        zoom={13}
+                        style={style}
+                        containerStyle={containerStyle}
+                        onClick={onMapClicked}
+                        initialCenter={init}>
+                        <Marker position={latlng}/>
+                    </Map>
+                    </div>
             </div>
         </div>
     )
