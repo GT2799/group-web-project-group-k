@@ -4,6 +4,8 @@ import clsx from "clsx"
 import { withStyles } from "@material-ui/core/styles"
 import Container from "@material-ui/core/Container"
 
+import Map from "../map/Map"
+
 const styles = (theme) => ({
     root: {
         color: theme.palette.common.white,
@@ -31,7 +33,7 @@ const styles = (theme) => ({
         bottom: 0,
         backgroundColor: theme.palette.common.black,
         opacity: 0.5,
-        zIndex: -1,
+        zIndex: 0,
     },
     background: {
         position: "absolute",
@@ -41,11 +43,11 @@ const styles = (theme) => ({
         bottom: 0,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
-        zIndex: -2,
+        zIndex: 0,
     },
     arrowDown: {
         position: "absolute",
-        bottom: theme.spacing(4),
+        bottom: theme.spacing(1),
     },
 })
 
@@ -55,22 +57,18 @@ function ProductHeroLayout(props) {
     return (
         <section className={classes.root}>
             <Container className={classes.container}>
-                <img
-                    src="/productHeroWonder.png"
-                    alt="wonder"
-                    width="147"
-                    height="80"
-                />
+                {//on top of background
+                }
                 {children}
                 <div className={classes.backdrop} />
-                <div
-                    className={clsx(classes.background, backgroundClassName)}
-                />
+                <div className={classes.background}>
+                    <Map/>
+                </div>
                 <img
                     className={classes.arrowDown}
                     src="/productHeroArrowDown.png"
-                    height="16"
-                    width="12"
+                    height="20"
+                    width="20"
                     alt="arrow down"
                 />
             </Container>

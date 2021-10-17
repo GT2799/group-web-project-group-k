@@ -32,6 +32,12 @@
 }
 
 .map {
-    flex: 4;
+    display: block;
+    position: absolute;
+    flex-grow: 1;
+    flex: 2;
+    width: 100%;
     height: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }

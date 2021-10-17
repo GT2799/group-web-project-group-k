@@ -35,46 +35,11 @@ function ProductHero(props) {
 
     return (
         <ProductHeroLayout backgroundClassName={classes.background}>
-            {/* Increase the network loading priority of the background image. */}
             <img
                 style={{ display: "none" }}
                 src={backgroundImage}
                 alt="increase priority"
             />
-            <Typography
-                color="inherit"
-                align="center"
-                variant="h2"
-                marked="center"
-            >
-                Find Your Dream Home
-            </Typography>
-            <Typography
-                color="inherit"
-                align="center"
-                variant="h5"
-                className={classes.h5}
-            >
-                View Property Information over 10000+ Houses via Google Maps
-            </Typography>
-            <Link to={"/signup"}>
-                <Button
-                    color="secondary"
-                    variant="contained"
-                    size="large"
-                    className={classes.button}
-                    component="a"
-                >
-                    Register
-                </Button>
-            </Link>
-            <Typography
-                variant="body2"
-                color="inherit"
-                className={classes.more}
-            >
-                Discover the experience
-            </Typography>
         </ProductHeroLayout>
     )
 }

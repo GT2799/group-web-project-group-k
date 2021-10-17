@@ -105,17 +105,30 @@ function MapCont(props) {
         overflowY: "hidden",
     }
     const containerStyle = {
-        maxWidth: "1200px",
-        height: "600px",
+        maxWidth: "100%",
+        height: "77vh",
+    }
+
+    const searchStyle = {
+        textInputContainer: {
+            backgroundColor: 'grey',
+          },
+          textInput: {
+            height: 38,
+            color: '#5d5d5d',
+            fontSize: 16,
+          },
     }
       
     return (
         
         <div className={st.container}>
+            {/*
             <div className={st.side}>
                 <p>{JSON.stringify(addrs)}</p>
                 <div><Sideinfo api={apiResponse}/></div>
-            </div>
+            </div> 
+            */}
             <div className={st.map}>
                 <Autocomplete
                     apiKey={API}
