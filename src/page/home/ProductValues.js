@@ -57,14 +57,11 @@ function ProductValues(props) {
                                 alt="suitcase"
                             />
                             <Typography variant="h6" className={classes.title}>
-                                The best luxury hotels
+                                Current Data Set
                             </Typography>
                             <Typography variant="h5">
                                 {
-                                    "From the latest trendy boutique hotel to the iconic palace with XXL pool"
-                                }
-                                {
-                                    ", go for a mini-vacation just a few subway stops away from your home."
+                                    "Our app currently uses data from 2001-2020, this data is acquired from official publicly available NSW Property Sales Information."
                                 }
                             </Typography>
                         </div>
@@ -77,13 +74,12 @@ function ProductValues(props) {
                                 alt="graph"
                             />
                             <Typography variant="h6" className={classes.title}>
-                                New experiences
+                                Pricing History
                             </Typography>
                             <Typography variant="h5">
                                 {
-                                    "Privatize a pool, take a Japanese bath or wake up in 900m2 of garden… "
+                                    "Find official sale pricing history and other relevant information of a number of NSW properties by searching or clicking on any property on the map "
                                 }
-                                {"your Sundays will not be alike."}
                             </Typography>
                         </div>
                     </Grid>
@@ -95,13 +91,12 @@ function ProductValues(props) {
                                 alt="clock"
                             />
                             <Typography variant="h6" className={classes.title}>
-                                Exclusive rates
+                                Our Purpose
                             </Typography>
                             <Typography variant="h5">
                                 {
-                                    "By registering, you will access specially negotiated rates "
+                                    "We wish to create an easy to use app that could help inform real-estate investors and first-home buyers before purchasing property"
                                 }
-                                {"that you will not find anywhere else."}
                             </Typography>
                         </div>
                     </Grid>

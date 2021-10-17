@@ -47,7 +47,7 @@
 
 }
 .searchContainerActiveState {
-    position:fixed;
+    position:relative;
     background-color:red;
     font-size: 2vh;
     z-index: 2;
@@ -67,6 +67,7 @@
     font-size:2vh;
     text-align: center;
 }
+
 .side {
     flex: 1;
     position: absolute;

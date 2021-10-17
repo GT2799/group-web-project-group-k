@@ -168,8 +168,9 @@ function MapCont(props) {
         zIndex: "3",
         marginLeft:"30vw",
         marginRight:"30vw",
-
+        fontSize:"2vh",
     }
+    
       
     return (
         
@@ -189,6 +190,7 @@ function MapCont(props) {
                 <Autocomplete
                     apiKey={API}
                     style={searchStyle}
+                    placeholder= "Search by Address"
                     onPlaceSelected={(place) => {
                         placeSelected (place)
                     }}
@@ -196,7 +198,6 @@ function MapCont(props) {
                         types: ["address"],
                         componentRestrictions: { country: "au" },
                     }}
-                    defaultValue="Macquarie University"
                 />;
                 <Map
                     resetBoundsOnResize={true}
