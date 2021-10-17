@@ -4,6 +4,7 @@ import clsx from "clsx"
 import { withStyles } from "@material-ui/core/styles"
 import Container from "@material-ui/core/Container"
 
+import Search from "../map/Search"
 import Map from "../map/Map"
 
 const styles = (theme) => ({
@@ -62,6 +63,7 @@ function ProductHeroLayout(props) {
                 {children}
                 <div className={classes.backdrop} />
                 <div className={classes.background}>
+                    <Search/>
                     <Map/>
                 </div>
                 <img

@@ -181,24 +181,6 @@ function MapCont(props) {
             </div> 
     */}
             <div className={st.map}>
-                <div className={st.searchContainer}>
-                    <p className={st.searchContainerText}>Search Properties</p>
-                    <div className={st.searchContainerActiveState}>
-                        <text className={st.activeStateText}>NSW</text>
-                    </div>
-                </div>
-                <Autocomplete
-                    apiKey={API}
-                    style={searchStyle}
-                    placeholder= "Search by Address"
-                    onPlaceSelected={(place) => {
-                        placeSelected (place)
-                    }}
-                    options={{
-                        types: ["address"],
-                        componentRestrictions: { country: "au" },
-                    }}
-                />;
                 <Map
                     resetBoundsOnResize={true}
                     google={props.google}
