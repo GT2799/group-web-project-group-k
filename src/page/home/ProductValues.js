@@ -4,6 +4,7 @@ import { withStyles } from "@material-ui/core/styles"
 import Grid from "@material-ui/core/Grid"
 import Container from "@material-ui/core/Container"
 import Typography from "../../components/Typography"
+import { white } from "material-ui/styles/colors"
 
 const styles = (theme) => ({
     root: {
@@ -12,17 +13,22 @@ const styles = (theme) => ({
         backgroundColor: theme.palette.secondary.light,
     },
     container: {
-        marginTop: theme.spacing(15),
+        marginTop: theme.spacing(5),
         marginBottom: theme.spacing(30),
+        padding: "0px",
         display: "flex",
         position: "relative",
+        width: "100vw",
+        flexDirection: "row",
+        justifyContent: "space-around",
+        flexWrap: "no-wrap",
     },
     item: {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         padding: theme.spacing(0, 5),
-    },
+        },
     image: {
         height: 55,
     },
@@ -35,10 +41,47 @@ const styles = (theme) => ({
         position: "absolute",
         top: -180,
     },
+    
+    resultStyle: {
+        backgroundColor: theme.palette.primary.dark,
+        position: "absolute",
+        marginTop: theme.spacing(40),
+        width: "100vw",
+        height: "35vh",
+        display: "flex",
+        flexDirection: "column",
+    },
+
+    resultsContLine: {
+        display: "flex",
+        position: "absolute",
+        marginTop: theme.spacing(20),
+        width: "100vw",
+        flexDirection: "row",
+        justifyContent: "space-around",
+        flexWrap: "no-wrap",
+        color: "white",
+    },
+
+    HLine: {
+        width: "20vw",
+    },
+
+    resultsCont: {
+        display: "flex",
+        position: "absolute",
+        marginTop: theme.spacing(20),
+        width: "100vw",
+        flexDirection: "row",
+        justifyContent: "space-around",
+        flexWrap: "no-wrap",
+        color: "white",
+    }
 })
 
 function ProductValues(props) {
     const { classes } = props
+
 
     return (
         <section className={classes.root}>
@@ -101,6 +144,18 @@ function ProductValues(props) {
                         </div>
                     </Grid>
                 </Grid>
+                <div className={classes.resultStyle}>
+                    <div className={classes.resultsContLine}>
+                        <hr className={classes.HLine}></hr>
+                        <hr className={classes.HLine}></hr>
+                        <hr className={classes.HLine}></hr>
+                    </div>
+                    <div className={classes.resultsCont}>
+                                <p>CHATSWOOD</p>
+                                <p>PRICE</p>
+                                <p>TIMES SOLD</p>
+                    </div>
+                </div>
             </Container>
         </section>
     )

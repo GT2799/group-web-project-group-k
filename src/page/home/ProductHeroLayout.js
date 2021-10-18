@@ -68,6 +68,7 @@ function ProductHeroLayout(props) {
         zIndex: Zind,
     }
 
+
     document.addEventListener("scroll",zIndexOnScroll)
     return (
         <section className={classes.root} >
