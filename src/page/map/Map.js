@@ -72,7 +72,6 @@ function MapCont(props) {
                             setApiResponse(res.data)
                         })
                 } else if (status == "ZERO_RESULTS") {
-                    alert("No result")
                 }
             })
             .catch((e) => {
