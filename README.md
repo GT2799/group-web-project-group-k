@@ -16,16 +16,23 @@ Our target demographic is mostly NSW first home buyers where they can use a simp
 + Week 10:
     + **DONE** Back End Implementation
     + **DONE** Data source Implementation: Bulk Data Clean up or Domain API Implementation
-    + **DONE** API Get Request Handling
-    + **DONE** API Post Request Handling
-    + **ADDITIONAL** Map marker on click
+    + **DONE** BULK DATA Separated and cleaned into Suburb data sets and Annual data sets
+    + **DONE** BULK DATA Stored on Amazon s3 where we can retrieve suburb_data based on requested data
+    + **DONE** API POST request sends GET request to Amazon s3 and receives appropriate response
+    + **DONE** Backend: Amazon s3 response data is correctly filtered and correct data response is passed to front-end
+    + **ADDITIONAL** Map marker displayed on click
 
 + Week 11:
     + **DONE** User Click Functionality for Maps returns: Address and Sales History if applicable
-    + **UNFINISHED** Control Behaviour (Error control)
-    + **UNFINISHED** CSS Styling
+    + **DONE** Search Bar Implemented
+    + **DONE** Search Bar disappears on map click for better map visibility
+    + **UNFINISHED** Redux implementation
+    + **UNFINISHED** Search Bar result interacts with map via redux
+    + **UNFINISHED** Display sales history data from on-click/search
+    + **STARTED** CSS Styling
 
 + Week 12: 
+    + **UNFINISHED** Control Behaviour (Error control)
     + **UNFINISHED** Back-End Testing 
     + **UNFINISHED** Front-End Testing
     + **UNFINISHED** Additional Functionality & CSS touchups
