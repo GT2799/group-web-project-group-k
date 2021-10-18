@@ -22,9 +22,9 @@ const Search = (opac) =>{
         <div>
             <div className={st.searchContainer}>
                 <p className={st.searchContainerText}>Search Properties</p>
+            </div>
             <div className={st.searchContainerActiveState}>
                 <text className={st.activeStateText}>NSW</text>
-            </div>
             </div>
             <Autocomplete
                 apiKey={API}
