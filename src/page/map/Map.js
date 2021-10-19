@@ -8,6 +8,8 @@ import st from "./Map.module.css"
 import { API } from "./API"
 import Sideinfo from "./Sideinfo"
 
+import { connect } from 'react-redux'
+
 
 function MapCont(props) {
     const [result, setResult] = useState()
@@ -151,6 +153,8 @@ function MapCont(props) {
         </div>
     )
 }
+const mapstate
+
 export default GoogleApiWrapper({
     apiKey: API,
 })(MapCont)
