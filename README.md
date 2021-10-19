@@ -30,6 +30,7 @@ Our target demographic is mostly NSW first home buyers where they can use a simp
     + **UNFINISHED** Search Bar result interacts with map via redux
     + **UNFINISHED** Display sales history data from on-click/search
     + **STARTED** CSS Styling
+    + **TODO** Test deployment for any errors
 
 + Week 12: 
     + **UNFINISHED** Control Behaviour (Error control)
