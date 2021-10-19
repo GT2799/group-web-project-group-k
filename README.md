@@ -37,6 +37,7 @@ Our target demographic is mostly NSW first home buyers where they can use a simp
     + **UNFINISHED** Back-End Testing 
     + **UNFINISHED** Front-End Testing
     + **UNFINISHED** Additional Functionality & CSS touchups
+    + **UNFINISHED** Commit to full deployment
 
 ### Requirements:
 Requirements needed to run app:
