@@ -87,7 +87,6 @@ function MapCont(props) {
         let latStr = arr[0].lat.toString()
         let lngStr = arr[1].lng.toString()
         finalString = `${latStr},${lngStr}`
-        console.log(finalString)
         return finalString
     }
 
@@ -164,7 +163,8 @@ const mapDispatchToProps = (dispatch) => {
     return{
         setApiResponse: (apiResponse) => { dispatch({type: 'SET_API_RES', apiResponse: apiResponse})},
         setSuburb: (suburb) => { dispatch({type: 'SET_SUBURB', suburb: suburb})},
-        setAddress: (address) => { dispatch({type: 'SET_ADDRESS', address: address})}
+        setAddress: (address) => { dispatch({type: 'SET_ADDRESS', address: address})},
+        setLatLng: (latlngarr) => { dispatch({type: 'SET_LATLNG', latlngarr: latlngarr})}
     }
 }
 

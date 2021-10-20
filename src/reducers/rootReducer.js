@@ -4,6 +4,7 @@ const initState = {
     address:["none", "none"], //address String[] array [HOUSE_NUM, STREET NAME]
     price: "N/A",
     numSold: "N/A",
+    latlngarr: [],
 
 }
 
@@ -54,7 +55,13 @@ const rootReducer = (state = initState, action) => {
         return{
             ...state,
             address: action.address,
-
+        }
+    }
+    if(action.type === 'SET_LATLNG'){
+        console.log("REDUX SET_ADDRESS CALL RECEIVED:",action.latlngarr)
+        return{
+            ...state,
+            latlngarr: action.latlngarr,
         }
     }
     return state
