@@ -84,6 +84,7 @@ npm run dev
 + Map functionality is found in: `./src/page/map/Map.js`
 + Search functionality is found in: `./src/page/map/Search.js`
 + Recent listing display is found in: `./src/page/ProductValues.js`
++ Map/Search display is found in: `./src/page/ProductHeroLayout.js`
 + Redux Store functionality is found in: `./src/reducers/rootReducer.js`
 
 #### JSON Data Structure example:
