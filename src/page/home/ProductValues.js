@@ -72,11 +72,11 @@ const styles = (theme) => ({
     },
     resPrice:{
         position:"absolute",
-        marginLeft:"49vw",
+        marginLeft:"47vw",
     },
     resNumSold:{
         position:"absolute",
-        marginLeft:"82vw",
+        marginLeft:"83vw",
     },
 
     resultsContLine: {
@@ -126,18 +126,8 @@ const ProductValues = (props) => {
     var apiArr = props.apiResponse.data
     var currSuburb = props.suburb.toUpperCase()
     var currAddress = props.address
-    var currEntry = null
-    var currPrice = "N/A"
-    var currNumSold = "N/A"
-    if(apiArr != undefined){ //if state exists
-        if(apiArr.length > 0){ //if at least one entry exists
-            currEntry = apiArr[apiArr.length -1]
-            if((currAddress[0] == currEntry.P_H_Num) && (currAddress[2] == currEntry.P_S_Name)){ //ensure we have correct address
-                currPrice = currEntry.P_Price
-                currNumSold = currEntry.length
-            }
-        } 
-    }
+    var currPrice = props.price
+    var currNumSold = props.numSold
     return (
         <section className={classes.root}>
             <Container className={classes.container}>
@@ -230,7 +220,9 @@ const mapStateToProps = (state) => {
     return{
         apiResponse: state.apiResponse,
         suburb: state.suburb,
-        address: state.address
+        address: state.address,
+        price: state.price,
+        numSold: state.numSold
     }
 }
 
