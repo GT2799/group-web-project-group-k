@@ -6,6 +6,9 @@ import Container from "@material-ui/core/Container"
 import Typography from "../../components/Typography"
 import { white } from "material-ui/styles/colors"
 
+import { compose } from 'redux'
+import { connect } from 'react-redux'
+
 const styles = (theme) => ({
     root: {
         display: "flex",
@@ -52,6 +55,30 @@ const styles = (theme) => ({
         flexDirection: "column",
     },
 
+    currResults: {
+        display: "flex",
+        position: "absolute",
+        marginTop: theme.spacing(10),
+        width: "100vw",
+        flexDirection: "row",
+        flexWrap: "no-wrap",
+        color: "#35ca9b",
+        fontSize: "xx-large"
+    },
+
+    resAdd:{
+        position:"absolute",
+        marginLeft:"12vw",
+    },
+    resPrice:{
+        position:"absolute",
+        marginLeft:"49vw",
+    },
+    resNumSold:{
+        position:"absolute",
+        marginLeft:"82vw",
+    },
+
     resultsContLine: {
         display: "flex",
         position: "absolute",
@@ -70,19 +97,47 @@ const styles = (theme) => ({
     resultsCont: {
         display: "flex",
         position: "absolute",
-        marginTop: theme.spacing(20),
+        marginTop: theme.spacing(19),
         width: "100vw",
         flexDirection: "row",
-        justifyContent: "space-around",
         flexWrap: "no-wrap",
         color: "white",
-    }
+        fontSize: "large"
+    },
+
+    Atext:{
+        position: "absolute",
+        marginLeft: "14vw",
+    },
+
+    Ptext:{
+        position: "absolute",
+        marginLeft: "49vw",
+    },
+
+    NStext:{
+        position: "absolute",
+        marginLeft: "81vw",
+    },
 })
 
-function ProductValues(props) {
+const ProductValues = (props) => {
     const { classes } = props
-
-
+    var apiArr = props.apiResponse.data
+    var currSuburb = props.suburb.toUpperCase()
+    var currAddress = props.address
+    var currEntry = null
+    var currPrice = "N/A"
+    var currNumSold = "N/A"
+    if(apiArr != undefined){ //if state exists
+        if(apiArr.length > 0){ //if at least one entry exists
+            currEntry = apiArr[apiArr.length -1]
+            if((currAddress[0] == currEntry.P_H_Num) && (currAddress[2] == currEntry.P_S_Name)){ //ensure we have correct address
+                currPrice = currEntry.P_Price
+                currNumSold = currEntry.length
+            }
+        } 
+    }
     return (
         <section className={classes.root}>
             <Container className={classes.container}>
@@ -145,15 +200,20 @@ function ProductValues(props) {
                     </Grid>
                 </Grid>
                 <div className={classes.resultStyle}>
+                    <div className={classes.currResults}>
+                        <p className={classes.resAdd}>{currAddress[0].toUpperCase()}, {currAddress[1].toUpperCase()}</p>
+                        <p className={classes.resPrice}>{currPrice}</p>
+                        <p className={classes.resNumSold}>{currNumSold}</p>
+                    </div>
                     <div className={classes.resultsContLine}>
                         <hr className={classes.HLine}></hr>
                         <hr className={classes.HLine}></hr>
                         <hr className={classes.HLine}></hr>
                     </div>
                     <div className={classes.resultsCont}>
-                                <p>CHATSWOOD</p>
-                                <p>PRICE</p>
-                                <p>TIMES SOLD</p>
+                                <p className={classes.Atext}>{currSuburb}</p>
+                                <p className={classes.Ptext}>PRICE</p>
+                                <p className={classes.NStext}>TIMES SOLD</p>
                     </div>
                 </div>
             </Container>
@@ -161,8 +221,22 @@ function ProductValues(props) {
     )
 }
 
+
 ProductValues.propTypes = {
     classes: PropTypes.object.isRequired,
 }
 
-export default withStyles(styles)(ProductValues)
+const mapStateToProps = (state) => {
+    return{
+        apiResponse: state.apiResponse,
+        suburb: state.suburb,
+        address: state.address
+    }
+}
+
+const enhanced = compose(
+    connect(mapStateToProps),
+    withStyles(styles)
+)
+
+export default enhanced(ProductValues)

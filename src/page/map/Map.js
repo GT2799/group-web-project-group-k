@@ -18,10 +18,7 @@ import { connect } from 'react-redux'
 
 
 function MapCont(props) {
-    const [result, setResult] = useState()
-    const [suburb, setSuburb] = useState()
     const [addrs, setAddrs] = useState([])
-    const [apiResponse, setApiResponse] = useState([])
 
     const baseURL = "https://maps.googleapis.com/maps/api/geocode/json?latlng="
     const suffixURL = `&result_type=street_address&key=${API}`
@@ -54,9 +51,7 @@ function MapCont(props) {
                 if (status == "OK") {
                     const suburb =
                         res.data.results[0].address_components[2].long_name
-                    setSuburb(suburb)
-
-                    setResult(res.data)
+                    props.setSuburb(suburb)
                     let listOfAddr = []
                     res.data.results.forEach((el) => {
                         let temp = []
@@ -67,14 +62,14 @@ function MapCont(props) {
                         listOfAddr.push(temp)
                     })
                     setAddrs(listOfAddr)
-
+                    props.setAddress(listOfAddr[0])
                     axios
                         .post("http://localhost:5000/api", {
                             suburb: suburb,
                             addrs: addrs,
                         })
                         .then((res) => {
-                            console.log(res.data)
+                            //console.log(res.data)
                             //setApiResponse(res.data)
                             //mapDispatchToProps(res.data)
                             props.setApiResponse(res.data)
@@ -167,7 +162,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return{
-        setApiResponse: (apiResponse) => { dispatch({type: 'SET_API_RES', apiResponse: apiResponse})}
+        setApiResponse: (apiResponse) => { dispatch({type: 'SET_API_RES', apiResponse: apiResponse})},
+        setSuburb: (suburb) => { dispatch({type: 'SET_SUBURB', suburb: suburb})},
+        setAddress: (address) => { dispatch({type: 'SET_ADDRESS', address: address})}
     }
 }
 

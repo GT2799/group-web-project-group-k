@@ -20,11 +20,12 @@ import { compose } from 'redux'
 import { connect } from 'react-redux'
 
 const App = (props) => {
+
     return (
         <Router>
             <Switch>
                 <Route exact path="/">
-                    <Index />
+                    <Index/>
                 </Route>
                 <Route exact path="/map">
                     <Map />
@@ -46,7 +47,7 @@ const App = (props) => {
     )
 }
 
-function Index() {
+const Index = () => {
     return (
         <React.Fragment>
             <AppAppBar />
@@ -61,4 +62,12 @@ function Index() {
     )
 }
 
-export default withRoot(compose(connect())(App))
+const mapStateToProps = (state) => {
+    return{
+        apiResponse: state.apiResponse,
+        suburb: state.suburb,
+        address: state.address
+    }
+}
+
+export default withRoot(compose(connect(mapStateToProps))(App))
