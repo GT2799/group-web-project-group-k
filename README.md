@@ -26,8 +26,9 @@ Our target demographic is mostly NSW first home buyers where they can use a simp
     + **DONE** User Click Functionality for Maps returns: Address and Sales History if applicable
     + **DONE** Search Bar Implemented
     + **DONE** Search Bar disappears on map click for better map visibility
-    + **UNFINISHED** Redux implementation
+    + **DONE** Redux implementation
     + **UNFINISHED** Search Bar result interacts with map via redux
+    + **DONE** Display simple details of most recent sale of address
     + **UNFINISHED** Display sales history data from on-click/search
     + **STARTED** CSS Styling
     + **TODO** Test deployment for any errors
