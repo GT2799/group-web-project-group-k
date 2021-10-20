@@ -81,8 +81,11 @@ npm run dev
 + Annual json data can be found in: `./Server/Data/json_data/Annual_data/`
 + Suburb json data can be found in: `./Server/Data/json_data/Suburb_data/`
 + Functions used to convert raw NSW Real Estate Data are found in: `./Server/Data/rawRead.java`
-+ Map functionality is found in: `./src/page/Map.js`
-+ Sales data display is found in: `./src/page/Sideinfo.js`
++ Map functionality is found in: `./src/page/map/Map.js`
++ Search functionality is found in: `./src/page/map/Search.js`
++ Recent listing display is found in: `./src/page/ProductValues.js`
++ Redux Store functionality is found in: `./src/reducers/rootReducer.js`
+
 #### JSON Data Structure example:
 
 ```
@@ -109,6 +112,7 @@ npm run dev
 + Group meetings are held every Monday on a Discord Channel where we discuss our current progress with the project and any issues.
 + Further communication is done with instant-messaging in the Discord Server.
 + Resource distribution is done via the resource text-channel within the Discord Server.
++ A more in-depth todo list is posted in the todo text-channel within the Discord Server whenever someone completes a task, this list also assigns the various tasks to team-members
 
 ### Post-Implementation: Next-steps
 + **Incorporate 2021 Weekly data:** Our App currently only has data for 2001-2020.
