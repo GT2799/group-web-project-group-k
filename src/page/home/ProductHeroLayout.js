@@ -7,6 +7,9 @@ import Container from "@material-ui/core/Container"
 import Search from "../map/Search"
 import Map from "../map/Map"
 
+import { compose } from 'redux'
+import { connect } from 'react-redux'
+
 const styles = (theme) => ({
     root: {
         color: theme.palette.common.black,
@@ -52,7 +55,7 @@ const styles = (theme) => ({
     },
 })
 
-function ProductHeroLayout(props) {
+const ProductHeroLayout = (props) => {
     const { backgroundClassName, children, classes } = props
 
     const[Zind, setZ] = useState(3)
@@ -101,4 +104,10 @@ ProductHeroLayout.propTypes = {
     classes: PropTypes.object.isRequired,
 }
 
-export default withStyles(styles)(ProductHeroLayout)
+const enhanced = compose(
+    connect(),
+    withStyles(styles)
+)
+
+
+export default enhanced(ProductHeroLayout)

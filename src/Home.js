@@ -16,7 +16,10 @@ import ProductHowItWorks from "./page/home/ProductHowItWorks"
 import ProductSmokingHero from "./page/home/ProductSmokingHero"
 import ProductValues from "./page/home/ProductValues"
 
-function App() {
+import { compose } from 'redux'
+import { connect } from 'react-redux'
+
+const App = (props) => {
     return (
         <Router>
             <Switch>
@@ -58,4 +61,4 @@ function Index() {
     )
 }
 
-export default withRoot(App)
+export default withRoot(compose(connect())(App))

@@ -7,6 +7,9 @@ import ProductHeroLayout from "./ProductHeroLayout"
 import { Link } from "react-router-dom"
 import house from "../../assets/img/House1.jpg"
 
+import { compose } from 'redux'
+import { connect } from 'react-redux'
+
 const backgroundImage = house
 
 const styles = (theme) => ({
@@ -30,7 +33,7 @@ const styles = (theme) => ({
     },
 })
 
-function ProductHero(props) {
+const ProductHero = (props) => {
     const { classes } = props
 
     return (
@@ -48,4 +51,10 @@ ProductHero.propTypes = {
     classes: PropTypes.object.isRequired,
 }
 
-export default withStyles(styles)(ProductHero)
+const enhanced = compose(
+    connect(),
+    withStyles(styles)
+)
+
+
+export default enhanced(ProductHero)

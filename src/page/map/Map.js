@@ -8,7 +8,13 @@ import st from "./Map.module.css"
 import { API } from "./API"
 import Sideinfo from "./Sideinfo"
 
+import { compose } from 'redux'
 import { connect } from 'react-redux'
+
+//Map function should take in: Props param: Latitude/Longitude <= search function
+//Map function should take in: Marker params to display marker
+//Map function outputs: Apiresponse -> redux store
+
 
 
 function MapCont(props) {
@@ -32,9 +38,7 @@ function MapCont(props) {
         lng: lng,
     }
 
-
     const onMapClicked = (mapProps, map, clickEvent) => {
-        console.log("lang and lat")
         const latLngArr = getLatLng(clickEvent) // array returned
         const latLngStr = latLngToString(latLngArr) // extract array and turn them into string
         //Marker location
@@ -71,7 +75,9 @@ function MapCont(props) {
                         })
                         .then((res) => {
                             console.log(res.data)
-                            setApiResponse(res.data)
+                            //setApiResponse(res.data)
+                            //mapDispatchToProps(res.data)
+                            props.setApiResponse(res.data)
                         })
                 } else if (status == "ZERO_RESULTS") {
                 }
@@ -153,8 +159,25 @@ function MapCont(props) {
         </div>
     )
 }
-const mapstate
+const mapStateToProps = (state) => {
+    return{
+        apiResponse: state.apiResponse
+    }
+}
 
-export default GoogleApiWrapper({
-    apiKey: API,
-})(MapCont)
+const mapDispatchToProps = (dispatch) => {
+    return{
+        setApiResponse: (apiResponse) => { dispatch({type: 'SET_API_RES', apiResponse: apiResponse})}
+    }
+}
+
+const enhanced = compose(
+    connect(mapStateToProps,mapDispatchToProps),
+    GoogleApiWrapper({
+        apiKey: API,
+    })
+)
+
+
+
+export default enhanced(MapCont)
