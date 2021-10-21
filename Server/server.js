@@ -15,9 +15,13 @@ const suffix = "_data.json"
 
 const subRouter = express.Router()
 
-let dbData = ""
+const constructDbUrl = (string) => {
+    const suburbUpper = string.replace(" ", "+").toUpperCase()
+    return `${baseUrl}${suburbUpper}${suffix}`
+}
+
 /*
-*   Front end will include these in the request
+    Front end will include these in the request
     1. String suburb => suburb of the address. this will be used to retrieve json file
     2. Array of Array<String> addrs =>  array of address sent back by geocoding api 
         Array<String> first element is street number. second element is st name
@@ -25,31 +29,34 @@ let dbData = ""
 subRouter.route("/").post((req, res) => {
     const { suburb, addrs } = req.body
     console.log(`received request for ${addrs}| ${suburb}`)
-    suburbUpper = suburb.replace(" ", "+").toUpperCase()
-    const dbURL = `${baseUrl}${suburbUpper}${suffix}`
+    // Construct URL by concat strings
+    const dbURL = constructDbUrl(suburb)
+
     axios
         .get(dbURL)
         .then((result) => {
-            dbData = result.data.Entries
+            const awsRes = result.data.Entries
             //Error handling: Suburb not in entries
-            if (!dbData) {
-                res.json({ message: "we do not have entry" })
+            if (!awsRes) {
+                res.json({ message: "we do not have entry for this suburb" })
             }
-            var UpperStreetName = String(addrs[0][1].toUpperCase())
-            console.log(UpperStreetName)
-            var houseNum = addrs[0][0]
+            let UpperStreetName = addrs[0][1].toUpperCase()
+            let houseNum = addrs[0][0]
             console.log("Street name to look for:", UpperStreetName)
             console.log("House number to look for:", houseNum)
             //Find data in (SUBURB)_data.json
-            let filteredData = dbData.filter(item => 
-                    item.P_H_Num == houseNum && item.P_S_Name == UpperStreetName
-                    //console.log(item.P_S_Name == UpperStreetName)
+            const filteredData = awsRes.filter(
+                (item) =>
+                    item.P_H_Num === houseNum &&
+                    item.P_S_Name === UpperStreetName
+                //console.log(item.P_S_Name == UpperStreetName)
             )
             console.log("filtering complete: ", filteredData.length)
-
+            // suburb found but no data for the particular property
             if (!filteredData) {
-                res.json({ message: "we do not have data" })
+                res.json({ message: "we do not have data for your property" })
             }
+            //return data to front end
             res.json({ data: filteredData })
         })
         .catch((err) => {
@@ -58,7 +65,8 @@ subRouter.route("/").post((req, res) => {
         })
 })
 
-app.use("/api", subRouter) 
+app.use("/api", subRouter)
+
 const port = process.env.PORT || 5000
 
 app.listen(port, () => console.log(`Server started on port ${port}`))

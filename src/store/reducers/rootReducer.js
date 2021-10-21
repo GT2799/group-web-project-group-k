@@ -1,65 +1,68 @@
 const initState = {
     apiResponse: [], //array of entries in form of apiResponse.data = [[0],[1],[2]...]
     suburb: "No Data", //Current suburb selected
-    address:["none", "none"], //address String[] array [HOUSE_NUM, STREET NAME]
+    address: ["none", "none"], //address String[] array [HOUSE_NUM, STREET NAME]
     price: "N/A",
     numSold: "N/A",
     latlngarr: [],
-
 }
-
 
 const rootReducer = (state = initState, action) => {
     console.log("REDUCER CALLED")
-    if(action.type === 'SET_API_RES') {
+
+    if (action.type === "SET_API_RES") {
         console.log("REDUX SET_API CALL RECEIVED:", action.apiResponse)
         //check if apiResponse has data
-            //check if address is == address in address arr
-                //set data
+        //check if address is == address in address arr
+        //set data
         var res = action.apiResponse.data
-        var curr = res[res.length-1]
-        if(res.length > 0){
-            if((state.address[0] == curr.P_H_Num) && (state.address[1].toUpperCase() == curr.P_S_Name)){
+        var curr = res[res.length - 1]
+        if (res.length > 0) {
+            if (
+                state.address[0] == curr.P_H_Num &&
+                state.address[1].toUpperCase() == curr.P_S_Name
+            ) {
                 console.log("DATA MATCHED TO APIRESPONSE")
-                return{
+                return {
                     ...state,
                     apiResponse: action.apiResponse,
                     price: currencyFormat.format(parseInt(curr.P_Price)),
-                    numSold: res.length
+                    numSold: res.length,
                 }
             } else {
                 console.log("DATA NO MATCH TO APIRESPONSE")
-                return{
+                return {
                     ...state,
                     apiResponse: action.apiResponse,
                     price: "N/A",
-                    numSold: "N/A"
+                    numSold: "N/A",
                 }
             }
         }
         console.log("APIRESPONSE NO DATA")
-        return{
+        return {
             ...state,
-            apiResponse: action.apiResponse
+            apiResponse: action.apiResponse,
         }
     }
-    if(action.type === 'SET_SUBURB'){
+
+    if (action.type === "SET_SUBURB") {
         console.log("REDUX SET_SUBURB CALL RECEIVED:", action.suburb)
-        return{
+        return {
             ...state,
-            suburb: action.suburb
+            suburb: action.suburb,
         }
     }
-    if(action.type === 'SET_ADDRESS'){
-        console.log("REDUX SET_ADDRESS CALL RECEIVED:",action.address)
-        return{
+    if (action.type === "SET_ADDRESS") {
+        console.log("REDUX SET_ADDRESS CALL RECEIVED:", action.address)
+        return {
             ...state,
             address: action.address,
         }
     }
-    if(action.type === 'SET_LATLNG'){
-        console.log("REDUX SET_ADDRESS CALL RECEIVED:",action.latlngarr)
-        return{
+    if (action.type === "SET_LATLNG") {
+        console.log("REDUX SET_ADDRESS CALL RECEIVED:", action.latlngarr)
+        return {
             ...state,
             latlngarr: action.latlngarr,
         }
@@ -67,9 +70,9 @@ const rootReducer = (state = initState, action) => {
     return state
 }
 
-var currencyFormat = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'AUD',
+var currencyFormat = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "AUD",
     minimumFractionDigits: 0,
     maximumFractionDigits: 0,
 })
