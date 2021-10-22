@@ -66,6 +66,15 @@ describe("post data", ()=>{
             .send(empty_payload)
             .expect(500)
     })
+
+
+    it("code 200",async ()=>{
+        await supertest(app)
+            .post("/api")
+            .send({payload: empty_payload})
+            .expect(500)
+    })
+
 })
 
 
