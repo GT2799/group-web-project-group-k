@@ -29,8 +29,17 @@ describe("is_server_running", () =>{
 // The only available methods are POST
 
 // GET TEST
-test("GET /", async () =>{
+test("GET /api", async () =>{
     await supertest(app).get("/")
+        .expect(404)
+        .then((response) => {
+
+        })
+})
+
+// GET TEST
+test("PUT /", async () =>{
+    await supertest(app).get("/api")
         .expect(404)
         .then((response) => {
 
