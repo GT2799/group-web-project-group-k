@@ -56,4 +56,17 @@ test("DELETE /", async () =>{
         })
 })
 
+describe("post data", ()=>{
+    const empty_payload = {  }
+    const payload_with_nulls = { suburb: null, addrs: null }
+    const payload_with_values = { suburb: '', addrs: '' }
+    it("code 500",async ()=>{
+        await supertest(app)
+            .post("/api")
+            .send(empty_payload)
+            .expect(500)
+    })
+})
+
+
 
