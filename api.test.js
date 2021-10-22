@@ -39,10 +39,21 @@ test("GET /api", async () =>{
 
 // GET TEST
 test("PUT /", async () =>{
-    await supertest(app).get("/api")
+    await supertest(app).put("/api")
         .expect(404)
         .then((response) => {
 
         })
 })
+
+
+// DELETE TEST
+test("DELETE /", async () =>{
+    await supertest(app).delete("/")
+        .expect(404)
+        .then((response) => {
+
+        })
+})
+
 
