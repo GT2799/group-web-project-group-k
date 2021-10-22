@@ -67,3 +67,5 @@ subRouter.route("/").post((req, res) => {
 })
 
 app.use("/api", subRouter)
+
+module.exports = app
